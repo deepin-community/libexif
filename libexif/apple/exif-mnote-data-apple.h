@@ -16,10 +16,12 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef __MNOTE_APPLE_CONTENT_H__
-#define __MNOTE_APPLE_CONTENT_H__
+#ifndef LIBEXIF_EXIF_MNOTE_DATA_APPLE_H
+#define LIBEXIF_EXIF_MNOTE_DATA_APPLE_H
 
 #include <libexif/exif-byte-order.h>
 #include <libexif/exif-data.h>
@@ -41,4 +43,4 @@ int exif_mnote_data_apple_identify(const ExifData *, const ExifEntry *);
 
 ExifMnoteData *exif_mnote_data_apple_new(ExifMem *);
 
-#endif /* __MNOTE_APPLE_CONTENT_H__ */
+#endif /* !defined(LIBEXIF_EXIF_MNOTE_DATA_APPLE_H) */

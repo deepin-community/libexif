@@ -18,10 +18,12 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef __EXIF_TAG_H__
-#define __EXIF_TAG_H__
+#ifndef LIBEXIF_EXIF_TAG_H
+#define LIBEXIF_EXIF_TAG_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -304,4 +306,4 @@ unsigned int exif_tag_table_count    (void);
 }
 #endif /* __cplusplus */
 
-#endif /* __EXIF_TAG_H__ */
+#endif /* !defined(LIBEXIF_EXIF_TAG_H) */

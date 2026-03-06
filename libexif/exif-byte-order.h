@@ -18,10 +18,12 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef __EXIF_BYTE_ORDER_H__
-#define __EXIF_BYTE_ORDER_H__
+#ifndef LIBEXIF_EXIF_BYTE_ORDER_H
+#define LIBEXIF_EXIF_BYTE_ORDER_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -45,4 +47,4 @@ const char *exif_byte_order_get_name (ExifByteOrder order);
 }
 #endif /* __cplusplus */
 
-#endif /* __EXIF_BYTE_ORDER_H__ */
+#endif /* !defined(LIBEXIF_EXIF_BYTE_ORDER_H) */

@@ -1,6 +1,7 @@
 # Danish translation libexif.
 # Copyright (C) 2016 Lutz Mueller og nedenstående oversættere.
 # This file is distributed under the same license as the libexif package.
+# SPDX-License-Identifier: LGPL-2.0-or-later
 # Joe Hansen <joedalton2@yahoo.dk>, 2009, 2010, 2012, 2016.
 # Korrekturlæst Lars Christian Jensen 2009.
 # Korrekturlæst Torben Grøn Helligsø, 2010. 
@@ -2799,16 +2800,6 @@ msgid "Indicates whether differential correction is applied to the GPS receiver.
 msgstr "Indikerer hvorvidt differentiel korrektion anvendes på GPS-modtageren."
 
 #: libexif/exif-tag.c:220
-msgid "GPS Horizontal Positioning Error"
-msgstr ""
-
-#: libexif/exif-tag.c:221
-msgid ""
-"Indicates the horizontal positioning errors in meters. This is expressed as "
-"one RATIONAL value."
-msgstr ""
-
-#: libexif/exif-tag.c:225
 msgid "New Subfile Type"
 msgstr "Ny underfilstype"
 

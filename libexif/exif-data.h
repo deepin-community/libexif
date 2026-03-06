@@ -2,8 +2,7 @@
  * \brief Defines the ExifData type and the associated functions.
  */
 /*
- * \author Lutz Mueller <lutz@users.sourceforge.net>
- * \date 2001-2005
+ * Copyright (c) 2001-2008 Lutz Mueller <lutz@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,10 +18,12 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef __EXIF_DATA_H__
-#define __EXIF_DATA_H__
+#ifndef LIBEXIF_EXIF_DATA_H
+#define LIBEXIF_EXIF_DATA_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -264,4 +265,4 @@ void exif_data_log  (ExifData *data, ExifLog *log);
 }
 #endif /* __cplusplus */
 
-#endif /* __EXIF_DATA_H__ */
+#endif /* !defined(LIBEXIF_EXIF_DATA_H) */

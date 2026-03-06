@@ -16,6 +16,8 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
 #include "exif.hxx"
@@ -151,9 +153,8 @@ struct PythonEntry : public Exif::Entry
 				//std::cerr << "assigning " << s.size() << "-character string..\n";
 				entry_->size=
 					exif_format_get_size(format()) * entry_->components;
-				entry_->data= (unsigned char *)malloc(entry_->size);
+				entry_->data= (unsigned char *)calloc(entry_->size+1,1);
 				memcpy(entry_->data, s.data(), entry_->size);
-				entry_->data[entry_->size]= 0;
 			}
 			else
 			{

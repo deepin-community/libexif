@@ -16,10 +16,12 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef __MNOTE_PENTAX_ENTRY_H__
-#define __MNOTE_PENTAX_ENTRY_H__
+#ifndef LIBEXIF_MNOTE_PENTAX_ENTRY_H
+#define LIBEXIF_MNOTE_PENTAX_ENTRY_H
 
 #include <libexif/exif-format.h>
 #include <libexif/exif-byte-order.h>
@@ -40,4 +42,4 @@ struct _MnotePentaxEntry {
 
 char *mnote_pentax_entry_get_value (MnotePentaxEntry *entry, char *val, unsigned int maxlen);
 
-#endif /* __MNOTE_PENTAX_ENTRY_H__ */
+#endif /* !defined(LIBEXIF_MNOTE_PENTAX_ENTRY_H) */

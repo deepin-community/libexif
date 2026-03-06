@@ -16,6 +16,8 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
 #include <config.h>
@@ -531,23 +533,23 @@ static const struct TagEntry {
 		"are the same."),
 	 { ESL_NNNN, ESL_NNNN, ESL_OOOO, ESL_NNNN, ESL_NNNN } },
 	{EXIF_TAG_STANDARD_OUTPUT_SENSITIVITY, "StandardOutputSensitivity", N_("Standard Output Sensitivity"),
-	 N_(""),
+	 "",
 	 { ESL_NNNN, ESL_NNNN, ESL_OOOO, ESL_NNNN, ESL_NNNN } },
 	{EXIF_TAG_RECOMMENDED_EXPOSURE_INDEX, "RecommendedExposureIndex",
 	 N_("Recommended Exposure Index"),
-	 N_(""),
+	 "",
 	 { ESL_NNNN, ESL_NNNN, ESL_OOOO, ESL_NNNN, ESL_NNNN } },
-	{EXIF_TAG_ISO_SPEED, "ISO Speed",
+	{EXIF_TAG_ISO_SPEED, "ISOSpeed",
 	 N_("ISO Speed"),
-	 N_(""),
+	 "",
 	 { ESL_NNNN, ESL_NNNN, ESL_OOOO, ESL_NNNN, ESL_NNNN } },
-	{EXIF_TAG_ISO_SPEEDLatitudeYYY, "ISO Speed Latitude yyy",
+	{EXIF_TAG_ISO_SPEEDLatitudeYYY, "ISOSpeedLatitudeyyy",
 	 N_("ISO Speed Latitude yyy"),
-	 N_(""),
+	 "",
 	 { ESL_NNNN, ESL_NNNN, ESL_OOOO, ESL_NNNN, ESL_NNNN } },
-	{EXIF_TAG_ISO_SPEEDLatitudeZZZ, "ISO Speed Latitude zzz",
+	{EXIF_TAG_ISO_SPEEDLatitudeZZZ, "ISOSpeedLatitudezzz",
 	 N_("ISO Speed Latitude zzz"),
-	 N_(""),
+	 "",
 	 { ESL_NNNN, ESL_NNNN, ESL_OOOO, ESL_NNNN, ESL_NNNN } },
 	{EXIF_TAG_EXIF_VERSION, "ExifVersion", N_("Exif Version"),
 	 N_("The version of this standard supported. Nonexistence of this "

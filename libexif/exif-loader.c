@@ -16,6 +16,8 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
 #include <config.h>
@@ -47,6 +49,8 @@
 #define JPEG_MARKER_APP4 0xe4
 #undef JPEG_MARKER_APP5
 #define JPEG_MARKER_APP5 0xe5
+#undef JPEG_MARKER_APP10
+#define JPEG_MARKER_APP10 0xea
 #undef JPEG_MARKER_APP11
 #define JPEG_MARKER_APP11 0xeb
 #undef JPEG_MARKER_APP13
@@ -63,7 +67,7 @@ typedef enum {
 	EL_READ_SIZE_BYTE_08,
 	EL_READ_SIZE_BYTE_00,
 	EL_SKIP_BYTES,
-	EL_EXIF_FOUND,
+	EL_EXIF_FOUND
 } ExifLoaderState;
 
 typedef enum {
@@ -247,7 +251,7 @@ begin:
 			switch (eld->size) {
                             case 0:
 			        eld->state = EL_READ;
-				i--;   // reprocess this byte
+				i--;   /* reprocess this byte */
 				break;
                             case 1:
                                 eld->size = 0;
@@ -277,7 +281,7 @@ begin:
 			case EL_DATA_FORMAT_JPEG:
 				eld->state = EL_SKIP_BYTES;
 				if (eld->size < 2) {
-				    // Actually it's malformed...
+				    /* Actually it's malformed... */
 				    eld->size = 0;
 				} else
 				    eld->size -= 2;
@@ -286,10 +290,10 @@ begin:
 				eld->data_format = EL_DATA_FORMAT_EXIF;
 				eld->state = EL_SKIP_BYTES;
 				if (eld->size < 86) {
-				    // Actually it's malformed...
+				    /* Actually it's malformed... */
 				    eld->size = 0;
 				} else
-				    eld->size -= 86;	// and put this in an else
+				    eld->size -= 86;	/* and put this in an else */
 				break;
 			case EL_DATA_FORMAT_EXIF:
 				eld->state = EL_EXIF_FOUND;
@@ -317,6 +321,7 @@ begin:
 			case JPEG_MARKER_APP2:
 			case JPEG_MARKER_APP4:
 			case JPEG_MARKER_APP5:
+			case JPEG_MARKER_APP10:
 			case JPEG_MARKER_APP11:
 			case JPEG_MARKER_APP13:
 			case JPEG_MARKER_APP14:

@@ -21,6 +21,7 @@
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
  *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
 #include <string.h>
@@ -64,7 +65,7 @@ void content_foreach_func(ExifEntry *entry, void *UNUSED(callback_data))
 void data_foreach_func(ExifContent *content, void *callback_data);
 void data_foreach_func(ExifContent *content, void *callback_data)
 {
-	printf("  Content %p: ifd=%d\n", content, exif_content_get_ifd(content));
+	printf("  Content %p: ifd=%d\n", (void *)content, exif_content_get_ifd(content));
 	exif_content_foreach_entry(content, content_foreach_func, callback_data);
 }
 static int
@@ -140,10 +141,16 @@ static void test_parse(const char *filename, void *callback_data)
 	if (-1 == stat(filename,&stbuf))
 		perror("stat");
 	f = fopen(filename,"r");
-	if (!f) return;
+	if (!f) {
+        fprintf(stderr, "Error opening %s\n", filename);
+        return;
+    }
 
 	buf = malloc(stbuf.st_size);
-	fread (buf, stbuf.st_size, 1, f);
+	if (fread (buf, stbuf.st_size, 1, f) != 1) {
+        fprintf(stderr, "Error reading %s\n", filename);
+        return;
+    }
 	fclose(f);
 
 	exif_loader_write(loader, buf, stbuf.st_size);

@@ -18,12 +18,14 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
 #include <stddef.h>
 #include "exif-gps-ifd.h"
 
-const static struct ExifGPSIfdTagInfo exif_gps_ifd_tags[] = {
+static const struct ExifGPSIfdTagInfo exif_gps_ifd_tags[] = {
 
     {EXIF_TAG_GPS_VERSION_ID, EXIF_FORMAT_BYTE, 4, 4, "\x02\x02\x00\x00"},
     {EXIF_TAG_GPS_LATITUDE_REF, EXIF_FORMAT_ASCII, 0, 0, 0},
@@ -55,11 +57,13 @@ const static struct ExifGPSIfdTagInfo exif_gps_ifd_tags[] = {
     {EXIF_TAG_GPS_PROCESSING_METHOD, EXIF_FORMAT_UNDEFINED, 0, 0, 0},
     {EXIF_TAG_GPS_AREA_INFORMATION, EXIF_FORMAT_UNDEFINED, 0, 0, 0},
     {EXIF_TAG_GPS_DATE_STAMP, EXIF_FORMAT_ASCII, 0, 0, 0},
-    {EXIF_TAG_GPS_DIFFERENTIAL, EXIF_FORMAT_SHORT, 1, 0, 0}
+    {EXIF_TAG_GPS_DIFFERENTIAL, EXIF_FORMAT_SHORT, 1, 0, 0},
+    {EXIF_TAG_GPS_H_POSITIONING_ERROR, EXIF_FORMAT_RATIONAL, 1, 0, 0},
 };
 
 const ExifGPSIfdTagInfo *exif_get_gps_tag_info(ExifTag tag) {
-  for (int i = 0; i < sizeof(exif_gps_ifd_tags) / sizeof(ExifGPSIfdTagInfo); ++i) {
+  size_t i;
+  for (i = 0; i < sizeof(exif_gps_ifd_tags) / sizeof(ExifGPSIfdTagInfo); ++i) {
     if (tag==exif_gps_ifd_tags[i].tag)
       return &exif_gps_ifd_tags[i];
   }
