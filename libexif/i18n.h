@@ -16,10 +16,12 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef __I18N_H__
-#define __I18N_H__
+#ifndef LIBEXIF_I18N_H
+#define LIBEXIF_I18N_H
 
 #include "config.h"
 
@@ -49,4 +51,4 @@
 #  define N_(String) (String)
 #endif
 
-#endif /* __I18N_H__ */
+#endif /* !defined(LIBEXIF_I18N_H) */

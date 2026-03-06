@@ -18,10 +18,12 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef __EXIF_ENTRY_H__
-#define __EXIF_ENTRY_H__
+#ifndef LIBEXIF_EXIF_ENTRY_H
+#define LIBEXIF_EXIF_ENTRY_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -183,4 +185,4 @@ void        exif_entry_dump      (ExifEntry *entry, unsigned int indent);
 }
 #endif /* __cplusplus */
 
-#endif /* __EXIF_ENTRY_H__ */
+#endif /* !defined(LIBEXIF_EXIF_ENTRY_H) */

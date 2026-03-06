@@ -16,6 +16,8 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
 #include <config.h>
@@ -64,6 +66,8 @@ mnote_apple_tag_get_title(MnoteAppleTag t) {
     (void) bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
     for (i = 0; i < sizeof (table) / sizeof (table[0]); i++) {
         if (table[i].tag == t) {
+            if (!table[i].title)
+                NULL;
             return _(table[i].title);
         }
     }

@@ -2,6 +2,10 @@
 # Compares the parsed EXIF data extracted from test images with the parsed EXIF
 # data in the original images. This tests that the tag parsing and writing
 # round-trip produces an EXIF structure with the same meaning as the original.
+#
+# Copyright (C) 2019-2021 Dan Fandrich <dan@coneharvesters.com>, et. al.
+# SPDX-License-Identifier: LGPL-2.0-or-later
+
 srcdir="${srcdir:-.}"
 TMPORIGINAL="$(mktemp)"
 TMPEXTRACTED="$(mktemp)"
@@ -38,6 +42,17 @@ for fn in "${srcdir}"/testdata/*.jpg ; do
 	: "no differences detected"
     else
         echo Error parsing "$fn"
+        exit 1
+    fi
+done
+
+for fn in "${srcdir}"/testdata/*.jpg ; do
+    ./test-parse$EXEEXT           "${fn}" | tr -d '\015' | parse_canonicalize > "${TMPORIGINAL}"
+    ./test-parse-from-data$EXEEXT "${fn}" | tr -d '\015' | parse_canonicalize > "${TMPEXTRACTED}"
+    if ${comparetool} "${TMPORIGINAL}" "${TMPEXTRACTED}"; then
+	echo "no differences detected"
+    else
+        echo "ERROR: Difference between test-parse and test-parse-from-data for $fn !"
         exit 1
     fi
 done

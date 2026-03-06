@@ -18,10 +18,12 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef __EXIF_UTILS_H__
-#define __EXIF_UTILS_H__
+#ifndef LIBEXIF_EXIF_UTILS_H
+#define LIBEXIF_EXIF_UTILS_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -191,4 +193,4 @@ void exif_array_set_byte_order (ExifFormat, unsigned char *, unsigned int,
 }
 #endif /* __cplusplus */
 
-#endif /* __EXIF_UTILS_H__ */
+#endif /* !defined(LIBEXIF_EXIF_UTILS_H) */

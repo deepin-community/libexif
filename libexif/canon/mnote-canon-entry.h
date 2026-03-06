@@ -16,10 +16,12 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef __MNOTE_CANON_ENTRY_H__
-#define __MNOTE_CANON_ENTRY_H__
+#ifndef LIBEXIF_MNOTE_CANON_ENTRY_H
+#define LIBEXIF_MNOTE_CANON_ENTRY_H
 
 #include <libexif/exif-format.h>
 #include <libexif/exif-byte-order.h>
@@ -41,4 +43,4 @@ struct _MnoteCanonEntry {
 unsigned int mnote_canon_entry_count_values (const MnoteCanonEntry *);
 char        *mnote_canon_entry_get_value    (const MnoteCanonEntry *, unsigned int t, char *val, unsigned int maxlen);
 
-#endif /* __MNOTE_CANON_ENTRY_H__ */
+#endif /* !defined(LIBEXIF_MNOTE_CANON_ENTRY_H) */

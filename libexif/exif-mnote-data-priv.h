@@ -16,10 +16,12 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef __EXIF_MNOTE_DATA_PRIV_H__
-#define __EXIF_MNOTE_DATA_PRIV_H__
+#ifndef LIBEXIF_EXIF_MNOTE_DATA_PRIV_H
+#define LIBEXIF_EXIF_MNOTE_DATA_PRIV_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -83,4 +85,4 @@ void exif_mnote_data_set_offset     (ExifMnoteData *, unsigned int);
 }
 #endif /* __cplusplus */
 
-#endif /* __EXIF_MNOTE_PRIV_H__ */
+#endif /* !defined(LIBEXIF_EXIF_MNOTE_DATA_PRIV_H) */

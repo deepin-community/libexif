@@ -18,10 +18,12 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef EXIF_SYSTEM_H
-#define EXIF_SYSTEM_H
+#ifndef LIBEXIF_EXIF_SYSTEM_H
+#define LIBEXIF_EXIF_SYSTEM_H
 
 #if defined(__GNUC__) && (__GNUC__ >= 2)
 # define UNUSED(param) UNUSED_PARAM_##param __attribute__((unused))
@@ -29,4 +31,4 @@
 # define UNUSED(param) param
 #endif
 
-#endif /* !defined(EXIF_SYSTEM_H) */
+#endif /* !defined(LIBEXIF_EXIF_SYSTEM_H) */

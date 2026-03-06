@@ -1,3 +1,43 @@
+libexif (0.6.25-1) unstable; urgency=medium
+
+  * New upstream version 0.6.25.
+  * debian/copyright: Update for libexif 0.6.25.
+
+ -- Hugh McMaster <hmc@debian.org>  Tue, 11 Feb 2025 21:19:04 +1100
+
+libexif (0.6.24-2) unstable; urgency=medium
+
+  [ Andreas Metzler ]
+  * Use extend-diff-ignore to let double build (source only after full)
+    succeed (Closes: #1047330).
+  * Run wrap-and-sort -ast.
+
+  [ Hugh McMaster ]
+  * debian/control:
+    + Update my email address.
+    + Raise Standards-Version to 4.7.0 from 4.6.2 (no changes needed).
+    + Remove Breaks+Replaces from libexif-doc.
+  * debian/copyright:
+    + Remove email addresses.
+    + Update for 2025.
+
+ -- Hugh McMaster <hmc@debian.org>  Thu, 09 Jan 2025 21:54:36 +1100
+
+libexif (0.6.24-1) unstable; urgency=medium
+
+  * New upstream version 0.6.24:
+    - Regression in exif_data_load_data fixed; EXIF in JPEG data loads again.
+    - Many Canon tag names decoded.
+    - "Persistent" AFL fuzzer added to code samples.
+    - Translation updates.
+  * debian/copyright: Update for libexif 0.6.24.
+  * Install the upstream documentation and examples in libexif-dev but package
+    the files in libexif-doc (as preferred by Debian Policy section 12.3).
+  * Upstream README and NEWS files are now only installed in libexif-dev.
+  * Delete debian/README.source.
+
+ -- Hugh McMaster <hugh.mcmaster@outlook.com>  Sun, 05 Dec 2021 16:28:31 +1100
+
 libexif (0.6.23-1) unstable; urgency=medium
 
   * New upstream version:

@@ -1,3 +1,6 @@
+# Copyright (C) 2001-2021 Lutz Mueller <lutz@users.sourceforge.net>, et. al.
+# SPDX-License-Identifier: LGPL-2.0-or-later
+
 SUBDIRS = nls
 
 # By default, a few definitions like bindir, srcdir are already set.
@@ -23,21 +26,23 @@ AM_TESTS_ENVIRONMENT += FAILMALLOC_PATH='$(FAILMALLOC_PATH)'; export FAILMALLOC_
 #      And this is just the lib - we don't have the program available
 #      here yet.
 
-TESTS = test-mem test-value test-integers test-parse test-tagtable test-sorted \
-	test-fuzzer test-null parse-regression.sh swap-byte-order.sh \
-	extract-parse.sh test-gps
+TESTS = test-mem test-value test-integers test-parse test-parse-from-data test-tagtable test-sorted \
+	test-fuzzer test-null test-gps parse-regression.sh swap-byte-order.sh \
+	extract-parse.sh check-mnote.sh
 
 TESTS += check-failmalloc.sh
 
-check_PROGRAMS = test-mem test-mnote test-value test-integers test-parse \
+check_PROGRAMS = test-mem test-mnote test-value test-integers test-parse test-parse-from-data \
 	test-tagtable test-sorted test-fuzzer test-extract test-null test-gps
 
 LDADD = $(top_builddir)/libexif/libexif.la $(LTLIBINTL)
 
 EXTRA_DIST = \
+	test-fuzzer-persistent.c \
 	parse-regression.sh \
 	swap-byte-order.sh \
 	extract-parse.sh \
+	check-mnote.sh \
 	check-failmalloc.sh \
 	testdata/canon_makernote_variant_1.jpg \
 	testdata/canon_makernote_variant_1.jpg.parsed \

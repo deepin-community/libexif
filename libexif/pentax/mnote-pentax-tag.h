@@ -16,10 +16,12 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef __MNOTE_PENTAX_TAG_H__
-#define __MNOTE_PENTAX_TAG_H__
+#ifndef LIBEXIF_MNOTE_PENTAX_TAG_H
+#define LIBEXIF_MNOTE_PENTAX_TAG_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -150,4 +152,4 @@ const char *mnote_pentax_tag_get_description (MnotePentaxTag tag);
 }
 #endif /* __cplusplus */
 
-#endif /* __MNOTE_PENTAX_TAG_H__ */
+#endif /* !defined(LIBEXIF_MNOTE_PENTAX_TAG_H) */

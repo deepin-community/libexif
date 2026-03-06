@@ -16,6 +16,8 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301  USA.
+ *
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
 #include <config.h>
@@ -35,7 +37,7 @@
  */
 /*#define EXIF_OVERCOME_SANYO_OFFSET_BUG */
 
-#define CHECKOVERFLOW(offset,datasize,structsize) (( offset >= datasize) || (structsize > datasize) || (offset > datasize - structsize ))
+#define CHECKOVERFLOW(offset,datasize,structsize) (( (offset) >= (datasize)) || ((structsize) > (datasize)) || ((offset) > (datasize) - (structsize) ))
 
 static enum OlympusVersion
 exif_mnote_data_olympus_identify_variant (const unsigned char *buf,
@@ -153,6 +155,7 @@ exif_mnote_data_olympus_save (ExifMnoteData *ne,
 		datao += n->offset + 10;
 		/* subtract the size here, so the increment in the next case will not harm us */
 		*buf_size -= 8 + 2;
+		/* fall through */
 	/* Fall through to nikonV2 handler */
 	case nikonV2: 
 	/* Write out V0 files in V2 format */
@@ -167,7 +170,7 @@ exif_mnote_data_olympus_save (ExifMnoteData *ne,
 
 		/* Write the header and the number of entries. */
 		strcpy ((char *)*buf, "Nikon");
-		(*buf)[6] = n->version;
+		(*buf)[6] = (unsigned char)n->version;
 
 		if (n->version != nikonV1) {
 			exif_set_short (*buf + 10, n->order, (ExifShort) (
@@ -241,7 +244,9 @@ exif_mnote_data_olympus_load (ExifMnoteData *en,
 	ExifShort c;
 	size_t i, tcount, o, o2, datao = 6, base = 0;
 
-	if (!n || !buf || !buf_size) {
+	if (!n) return;
+
+	if (!buf || !buf_size) {
 		exif_log (en->log, EXIF_LOG_CODE_CORRUPT_DATA,
 			  "ExifMnoteDataOlympus", "Short MakerNote");
 		return;

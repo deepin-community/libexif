@@ -85,3 +85,13 @@
  * can use libexif without issues if they never share handles.
  *
  */
+/* Copyright (C) 2007-2021 Hans Ulrich Niedermann <gp@n-dimensional.de>
+ * SPDX-License-Identifier: LGPL-2.0-or-later
+ */
+
+#ifndef LIBEXIF_EXIF_H
+#define LIBEXIF_EXIF_H
+
+/* Empty header file content. */
+
+#endif /* !defined(LIBEXIF_EXIF_H) */
