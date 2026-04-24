@@ -1,3 +1,9 @@
+libexif (0.6.25-1deepin1) unstable; urgency=medium
+
+  * Fix CVE-2026-32775: integer underflow in MakerNote entries
+
+ -- deepin-ci-robot <packages@deepin.org>  Sat, 25 Apr 2026 01:43:36 +0800
+
 libexif (0.6.25-1) unstable; urgency=medium
 
   * New upstream version 0.6.25.
