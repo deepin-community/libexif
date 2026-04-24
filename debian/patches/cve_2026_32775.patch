@@ -1,0 +1,81 @@
+Description: Fix CVE-2026-32775: integer underflow in MakerNote entries
+Author: Deepin CI Robot <packages@deepin.org>
+Origin: upstream
+Bug: https://security-tracker.debian.org/tracker/CVE-2026-32775
+Forwarded: not-needed
+---
+This patch fixes an integer underflow vulnerability in the MakerNote entry
+processing functions by adding a bounds check before any string operations.
+
+The vulnerability occurred when maxlen was 0, causing maxlen-- to underflow
+and potentially leading to buffer overflow issues.
+
+Index: github-libexif-CVE-2026-32775/libexif/apple/mnote-apple-entry.c
+===================================================================
+--- github-libexif-CVE-2026-32775.orig/libexif/apple/mnote-apple-entry.c
++++ github-libexif-CVE-2026-32775/libexif/apple/mnote-apple-entry.c
+@@ -46,6 +46,9 @@ mnote_apple_entry_get_value(MnoteAppleEn
+     if (!entry)
+         return NULL;
+ 
++	if (maxlen < 1)
++		return NULL;
++
+     memset(v, 0, maxlen);
+     maxlen--;
+ 
+Index: github-libexif-CVE-2026-32775/libexif/canon/mnote-canon-entry.c
+===================================================================
+--- github-libexif-CVE-2026-32775.orig/libexif/canon/mnote-canon-entry.c
++++ github-libexif-CVE-2026-32775/libexif/canon/mnote-canon-entry.c
+@@ -562,6 +562,9 @@ mnote_canon_entry_get_value (const Mnote
+ 	if (!entry) 
+ 		return NULL;
+ 
++	if (maxlen < 1)
++		return NULL;
++
+ 	data = entry->data;
+ 	size = entry->size;
+ 
+Index: github-libexif-CVE-2026-32775/libexif/fuji/mnote-fuji-entry.c
+===================================================================
+--- github-libexif-CVE-2026-32775.orig/libexif/fuji/mnote-fuji-entry.c
++++ github-libexif-CVE-2026-32775/libexif/fuji/mnote-fuji-entry.c
+@@ -202,6 +202,9 @@ mnote_fuji_entry_get_value (MnoteFujiEnt
+ 
+ 	if (!entry) return (NULL);
+ 
++	if (maxlen < 1)
++		return NULL;
++
+ 	memset (val, 0, maxlen);
+ 	maxlen--;
+ 
+Index: github-libexif-CVE-2026-32775/libexif/olympus/mnote-olympus-entry.c
+===================================================================
+--- github-libexif-CVE-2026-32775.orig/libexif/olympus/mnote-olympus-entry.c
++++ github-libexif-CVE-2026-32775/libexif/olympus/mnote-olympus-entry.c
+@@ -287,6 +287,9 @@ mnote_olympus_entry_get_value (MnoteOlym
+ 	if (!entry)
+ 		return (NULL);
+ 
++	if (maxlen < 1)
++		return NULL;
++
+ 	memset (v, 0, maxlen);
+ 	maxlen--;
+ 
+Index: github-libexif-CVE-2026-32775/libexif/pentax/mnote-pentax-entry.c
+===================================================================
+--- github-libexif-CVE-2026-32775.orig/libexif/pentax/mnote-pentax-entry.c
++++ github-libexif-CVE-2026-32775/libexif/pentax/mnote-pentax-entry.c
+@@ -318,6 +318,9 @@ mnote_pentax_entry_get_value (MnotePenta
+ 
+ 	if (!entry) return (NULL);
+ 
++	if (maxlen < 1)
++		return NULL;
++
+ 	memset (val, 0, maxlen);
+ 	maxlen--;
