@@ -1,3 +1,10 @@
+libexif (0.6.25-1deepin2) unstable; urgency=medium
+
+  * Fix CVE-2026-40385: Integer overflow in Nikon MakerNote handling
+    on 32-bit systems, leading to potential crashes or information leaks.
+
+ -- deepin-ci-robot <packages@deepin.org>  Fri, 08 May 2026 16:05:00 +0800
+
 libexif (0.6.25-1deepin1) unstable; urgency=medium
 
   * Fix CVE-2026-32775: integer underflow in MakerNote entries
