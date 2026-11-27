@@ -1,21 +1,20 @@
-libexif (0.6.25-1deepin3) unstable; urgency=medium
+libexif (0.6.25-1+deb13u1) trixie; urgency=medium
 
-  * Rebuild with LTO enabled (dpkg vendor feature optimize/lto).
+  * Team upload.
+  * d/patches/CVE-2026-40386.patch Add patch for CVE-2026-40386.
+    - An integer underflow in size checking for Fuji and Olympus MakerNote
+      decoding could be used by attackers to crash or leak information out
+      of libexif-using programs (Closes: #1133923).
+  * d/patches/CVE-2026-40385.patch: Add patch for CVE-2026-40385.
+    - An unsigned 32bit integer overflow in Nikon MakerNote handling could
+      be used by local attackers to cause crashes or information leaks.
+      (Closes: #1133922).
+  * d/patches/CVE-2026-32775.patch: Add patch for CVE-2026-32775.patch.
+    - If the exif_mnote_data_get_value function in MakerNotes gets passed
+      in a 0 size, the passed in-buffer would be overwritten due to an
+      integer underflow (Closes: #1131116).
 
- -- tunaichao <tunaichao@uniontech.com>  Fri, 11 Sep 2026 15:55:35 +0800
-
-libexif (0.6.25-1deepin2) unstable; urgency=medium
-
-  * Fix CVE-2026-40385: Integer overflow in Nikon MakerNote handling
-    on 32-bit systems, leading to potential crashes or information leaks.
-
- -- deepin-ci-robot <packages@deepin.org>  Fri, 08 May 2026 16:05:00 +0800
-
-libexif (0.6.25-1deepin1) unstable; urgency=medium
-
-  * Fix CVE-2026-32775: integer underflow in MakerNote entries
-
- -- deepin-ci-robot <packages@deepin.org>  Sat, 25 Apr 2026 01:43:36 +0800
+ -- Emmanuel Arias <eamanu@debian.org>  Fri, 17 Apr 2026 07:48:04 -0300
 
 libexif (0.6.25-1) unstable; urgency=medium
 
